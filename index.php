@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <div class="container">
+  <div class="container">
     <h2><center>DATA PESERTA</center></h2>
     <table class="tabel" align="center">
   <tr>
@@ -14,27 +14,31 @@
     <th>Password</th>
     <th>Level</th>
     <th>Fullname</th>
+    <th>Aksi</th>
   </tr></div>
   <?php
-
+  
   include('koneck.php');
 
   $sql_tampil ="SELECT * FROM users";
 
   $peserta=mysqli_query($conn,$sql_tampil);
 
-  while($baris_data=mysqli_fetch_array($peserta,MYSQLI_ASSOC)){
-    echo'
-    </tr>
-      <td>'.$baris_data['ID'].'</td>
-      <td>'.$baris_data['USERNAME'].'</td>  
-      <td>'.$baris_data['PASSWORD'].'</td>
-      <td>'.$baris_data['LEVEL'].'</td>
-      <td>'.$baris_data['FULLNAME'].'</td>
-    </tr>';
 
-    //kaya uud kiye pak wkwk
-  }
-  ?>
+  while($baris_data=mysqli_fetch_array($peserta,MYSQLI_ASSOC)){
+    ?>
+    <tr>
+      <td><?php echo $baris_data['ID']; ?></td>
+      <td><?php echo $baris_data['USERNAME']; ?></td>
+      <td><?php echo $baris_data['PASSWORD']; ?></td>
+      <td><?php echo $baris_data['LEVEL']; ?></td>
+      <td><?php echo $baris_data['FULLNAME']; ?></td>
+      <td>
+      <a href="edit.php?id=<?php echo $baris_data['ID']; ?>">Edit</a> |
+      <a href="delete.php?id=<?php echo $baris_data['ID']; ?>">Hapus</a>
+      </td>
+    </tr>
+<?php } ?>
+//ty udud
 </body>
 </html>
