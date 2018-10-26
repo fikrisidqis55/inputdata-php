@@ -6,7 +6,9 @@
 <body>
 
   <div class="container">
-    <h2><center>DATA PESERTA</center></h2>
+    <h2><center>DATA PESERTA</center>
+      <a href="input.php">INPUT DATA</a>
+    </h2>
     <table class="tabel" align="center">
   <tr>
     <th>Id</th>
@@ -25,6 +27,7 @@
   $peserta=mysqli_query($conn,$sql_tampil);
 
 
+
   while($baris_data=mysqli_fetch_array($peserta,MYSQLI_ASSOC)){
     ?>
     <tr>
@@ -34,11 +37,11 @@
       <td><?php echo $baris_data['LEVEL']; ?></td>
       <td><?php echo $baris_data['FULLNAME']; ?></td>
       <td>
-      <a href="edit.php?id=<?php echo $baris_data['ID']; ?>">Edit</a> |
+
+      <a href="edit.php?id=<?php echo $baris_data['ID']; ?>">Edit</a>
       <a href="delete.php?id=<?php echo $baris_data['ID']; ?>">Hapus</a>
       </td>
     </tr>
 <?php } ?>
-//ty udud
 </body>
 </html>
